@@ -7,20 +7,34 @@
 
     <style>
         * {
+            /*  Sets the font to use for text. You can't always know which fonts will be available on the user's device,
+                So we provide a list of increasingly standard fonts. If the browser can't find the first font, it moves
+                on to the next and so on until it gets to "sans-serif," one of the few universally available fonts. */
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
         body {
+            /*  The margin property controls the amount of empty space around an element on any given side.
+                Giving it just the number 0 sets all four sides to 0 margin, which we do to get rid of the small margin
+                the body element has by default. */
             margin: 0;
             background-color: #93e9d7;
         }
 
         main {
-            margin-inline: 20%;
-            margin-block: 2rem;
+            margin-inline: 20%; /* Setting the left & right margins to be 20% of the available horizontal space */
+            margin-block: 2rem; /* Setting the top & bottom margins to be 2 "rem" units */
+
+            /*  "rem" is a unit of distance just like "px", but it is based on the width of an "m" charcter in the page's root element.
+                The effect of this is that distances specified in "rem" will scale up and down when the user
+                zooms in/out of the page, just like the text & other content. (distances specified in "px"
+                will always stay the same size.) */
+            
+            /*  The padding property is similar to margin, but instead of controlling the empty space outside an element,
+                it controls the amount of empty space inside an element around its border. */
             padding: 2rem;
-            border-radius: 2rem;
-            box-shadow: 0 2px 8px #00000044;
+            border-radius: 2rem; /* Gives the element rounded corners */
+            box-shadow: 0 2px 8px #00000044; /* Gives the element a drop-shadow */
             background-color: white;
         }
         
