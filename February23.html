@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>February 15 Web Dev Agenda</title>
+
+    <style>
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #93e9d7;
+        }
+
+        main {
+            margin-inline: 20%;
+            margin-block: 2rem;
+
+            padding: 2rem;
+            border-radius: 2rem;
+            box-shadow: 0 2px 8px #00000044;
+            background-color: white;
+        }
+        
+        main > * {
+            margin-block: 1rem;
+        }
+
+        /* A keyframes rule is used to define an animation that we can apply to other elements! */
+        @keyframes flash {
+            /* For this animation, we just want to set what happens at the end, so we put that inside a "to" block */
+            to {
+                /* All styles in this block will be applied to the element at the end of its animation, and they will smoothly transition during the animation if possible. */
+                transform: scale(120%);
+                color: #e1a3d6;
+                text-shadow: 0 0 24px yellow;
+            }
+        }
+        
+        h1 {
+            /* To apply an animation, give an element an "animation-name" with the name of a keyframes rule you define */
+            animation-name: flash;
+
+            /* We then set some other properties to determine how the animation will play out: */
+            animation-timing-function: ease-in-out; /* Sets the animation to smoothly start and end */
+            animation-duration: 1s; /* Sets the duration of one iteration of the animation */
+            animation-iteration-count: infinite; /* Sets the animation to loop infinitely */
+            animation-direction: alternate; /* Sets the animation to play forwards and then backwards */
+
+            /* Animation properties can also all be combined into one line like so: */
+            /* animation: flash ease-in-out 1s infinite alternate; */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ae5b9f;
+        }
+
+        h2 {
+            margin-top: 4rem;
+        }
+
+        h3 {
+            color: #ae5b9f;
+        }
+
+        p, li {
+            font-size: 16pt;
+            line-height: 1.8;
+        }
+
+        img {
+            display: block;
+            width: 70%;
+            height: auto;
+            margin: 1rem auto;
+        }
+
+        em {
+            color: #c81642;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>
+            February 23 Agenda:
+        </h1>
+        <h2>
+            Refresher on using git:
+        </h2>
+        <h2>
+            Host your site with Github Pages:
+        </h2>
+        
+    </main>
+</body>
+</html>
