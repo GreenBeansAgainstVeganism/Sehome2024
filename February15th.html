@@ -72,6 +72,14 @@
         em {
             color: #c81642;
         }
+
+        /* Selects elements with a "class" attribute of "flashy" */
+        .flashy {
+            text-align: center;
+            font-weight: bold;
+            color: blue;
+            text-shadow: 0 0 8px yellow;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +96,11 @@
             </li>
             <li>
                 Click <em>File > New Repository</em>.
-                <img src="./images/2024-02-14-20-52-44.png" alt="Github Desktop window with the New Repository button highlighted"/>
+                <!-- 
+                    For accessibility reasons, we should always use the "alt" attribute to include alt text whenever we create
+                    an image. Alt text is a brief description of what is in the image for people who use screen readers or can't access the image for some reason.
+                 -->
+                <img src="./images/2024-02-14-20-52-44.png" alt="Github Desktop window with New Repository button highlighted"/>
             </li>
             <li>
                 Click <em>choose</em> under <em>local path</em>, navigate to and select your <strong>web projects folder</strong>.
@@ -183,8 +195,9 @@
                 <em>Push</em> your changes to update the remote repository.
             </li>
         </ol>
-        <p style="text-align: center;">
-            <strong>Congratulations! You now know the basics of git, one of the most widely used developer tools in the world!</strong>
+        <!-- This paragraph has a "class" attribute of "flashy" which allows it to be targetted by the ".flashy" CSS rule above -->
+        <p class="flashy">
+            Congratulations! You now know the basics of git, one of the most widely used developer tools in the world!
         </p>
     </main>
 </body>
