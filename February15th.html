@@ -47,8 +47,30 @@
             color: #ae5b9f;
         }
 
-        li {
+        h2 {
+            margin-top: 4rem;
+        }
+
+        h3 {
+            color: #ae5b9f;
+        }
+
+        p, li {
             font-size: 16pt;
+            line-height: 1.8;
+        }
+
+        img {
+            display: block;
+            width: 70%;
+            height: auto;
+            /*  When supplied with two values, the first value controls the vertical margins and the second controls the horizontal ones.
+                A horizontal margin of "auto" automatically expands the left and right margins as much as possible, centering the element. */
+            margin: 1rem auto;
+        }
+
+        em {
+            color: #c81642;
         }
     </style>
 </head>
@@ -57,11 +79,113 @@
         <h1>
             February 15th Agenda:
         </h1>
+        <h2>
+            Creating your git repository:
+        </h2>
         <ol>
             <li>
-                
+                Open Github Desktop and sign in with your Github account
+            </li>
+            <li>
+                Click <em>File > New Repository</em>.
+                <img src="./images/2024-02-14-20-52-44.png" alt="Github Desktop window with the New Repository button highlighted"/>
+            </li>
+            <li>
+                Click <em>choose</em> under <em>local path</em>, navigate to and select your <strong>web projects folder</strong>.
+                <img src="./images/2024-02-14-21-07-54.png" alt="New Repository dialog with choose button highlighted">
+                <img src="./images/2024-02-14-21-12-20.png" alt="File Selector dialog with web projects folder selected">
+            </li>
+            <li>
+                Name your repository with <strong>exactly the same name</strong> as you gave to your <strong>first website folder</strong> in order to target that folder. You can check <em>Initialize this repository with a README</em> and set the project license to a license of your choosing, then hit <em>Create Repository</em>.
+                <img src="./images/2024-02-14-21-19-13.png" alt="New Repository dialog with name and other mentioned fields filled out">
+            </li>
+            <li>
+                Your first website folder should now be initialized as a git repository. Double check that this worked by going to your folder and making sure your <em>license</em> and <em>README.md</em> file are there. You might also see a <em>.git</em> folder and <em>.gitattributes</em> file if you have hidden files set to visible in your file explorer. These are what designate your folder as a git repository.
+                <img src="./images/2024-02-14-21-33-37.png" alt="File Explorer window showing website folder with license, README.md, .git, .gitattributes, and index.html files">
+            </li>
+            <li>
+                You've now created a local repository. You need to <strong>publish</strong> your repository to create a remote (AKA online) version of it on Github. Go back to Github Desktop and click <em>Publish repository</em> in the middle of the window.
+                <img src="./images/2024-02-14-21-38-11.png" alt="Github Desktop window with Publish repository button highlighted">
+            </li>
+            <li>
+                In the dialog box, you can leave everything as it is but make sure to <strong>uncheck the box</strong> for <em>Keep this code private</em>. <strong>We will need the repository to be public in order to set up free website hosting with Github Pages later.</strong>
+                <img src="./images/2024-02-14-21-42-22.png" alt="Publish repository dialog with keep this code private unchecked">
+            </li>
+            <li>
+                Once you hit <em>Publish repository</em>, your local and remote repository is now officially set up!
             </li>
         </ol>
+        <h2>
+            Using git:
+        </h2>
+        <p>
+            Git is a powerful tool for managing your coding projects, keeping track of your projects' changes over time, keeping your files synced across multiple devices, and collaborating with others on the same project. However, it requires a few more steps than you might be used to in order to do things like saving your work. Let's see how that works:
+        </p>
+        <h3>
+            Add
+        </h3>
+        <p>
+            If you were using the <strong>command line</strong> version of git, you would have to manually tell it to add new files to the list of files the repository is tracking. Github Desktop automatically adds all the files in your repository folder so no need to worry about this one!
+        </p>
+        <h3>
+            Commit
+        </h3>
+        <p>
+            A commit is what you do whenever you want to <em>commit</em> some changes you made to your project to git's version memory. Github Desktop will automatically show you when you have new changes to files that have yet to be committed.
+        </p>
+        <p>
+            To create a new commit, simply type a short message in the small box in the bottom left describing what was changed/fixed/added and hit <em>commit to main</em>.
+        </p>
+        <img src="./images/2024-02-14-21-59-20.png" alt="Github Desktop window with example commit and message">
+        <h3>
+            Push
+        </h3>
+        <p>
+            The remote (online) version of your repository will not automatically sync with your local repository. Whenever you want to update your remote repository with the changes you made locally, you have to tell git to <em>push</em> those changes to the web.
+        </p>
+        <p>
+            To do this, hit <em>Push Origin</em> in Github Desktop after you've made at least one local commit.
+        </p>
+        <img src="./images/2024-02-14-22-10-11.png" alt="Github Desktop window after making a commit with push origin button highlighted">
+        <h3>
+            Pull
+        </h3>
+        <p>
+            Likewise, your local repository will not automatically sync changes from the remote repository. If you're accessing your project on a different device from last time, or if a friend of yours has pushed changes to your remote repository, you'll want to <em>pull</em> those changes to your local repository before you start working, so you have the latest version of all the files.
+        </p>
+        <p>
+            You can do this by clicking <em>Repository > Pull</em> in Github Desktop.
+        </p>
+        <img src="./images/2024-02-14-22-12-41.png" alt="Github Desktop window with Pull button highlighted">
+        <h3>
+            Recap
+        </h3>
+        <p>
+            Whenever you sit down to work on a personal project with git, your workflow should look something like this:
+        </p>
+        <ol>
+            <li>
+                <em>Pull</em> from the remote repository to make sure your files are up to date.
+            </li>
+            <li>
+                Do some work.
+            </li>
+            <li>
+                Save all the files you edited.
+            </li>
+            <li>
+                <em>Commit</em> your changes so git will remember them.
+            </li>
+            <li>
+                If you are working on a project with others simultaneously, you may want to <em>Pull</em> again at this point. Git will automatically warn you if there are conflicts between the changes you made and changes someone else already pushed, and it will prompt you to resolve them line by line.
+            </li>
+            <li>
+                <em>Push</em> your changes to update the remote repository.
+            </li>
+        </ol>
+        <p style="text-align: center;">
+            <strong>Congratulations! You now know the basics of git, one of the most widely used developer tools in the world!</strong>
+        </p>
     </main>
 </body>
 </html>
