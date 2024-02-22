@@ -5,14 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>February 15 Web Dev Agenda</title>
 
+    <!-- 
+        This imports a custom font from the Google Fonts API.
+        If you want to use different fonts for your website besides just the web defaults, Google Fonts is a great source of fonts that are free for commercial use! Just go to fonts.google.com and find a font you like, then copy the <link> tag below and change the bit after "?family=" to the name of your font, replacing space characters with '+'.
+     -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
     <style>
+
+        /* Applying our custom font to all elements on the page */
         * {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: 'Roboto Slab', Arial, sans-serif;
         }
 
         body {
             margin: 0;
-            background-color: #93e9d7;
+            /* background images are another way of adding images to your website */
+            background-image: url("./images/2024-02-21-21-31-18.png");
+            background-size: cover;
+            background-position-y: top;
+            background-attachment: fixed;
+
+            /* Making the background move as you scroll */
+            /* animation-timeline is an experimental feature and may not work on some browsers like Firefox. You can check which browsers support a feature at the bottom of its MDN Docs page. */
+            animation-name: background-scroll;
+            animation-timing-function: linear;
+            animation-timeline: scroll();
+        }
+
+        /* Scroll down to see a more traditional example of how animations work. */
+        @keyframes background-scroll {
+            to {
+                background-position-y: bottom;
+            }
+        }
+
+        header {
+            /* You can also use background-image to generate graphics on the fly, such as gradients */
+            background-image: linear-gradient(#33134f 20%, #ae4ea8 100%);
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+
+            border-bottom: 2px solid #ffc0f7;
+            box-shadow: 0 0 16px #ffc0f7;
         }
 
         main {
@@ -20,9 +54,11 @@
             margin-block: 2rem;
 
             padding: 2rem;
+            border: 2px solid #c0d7ff;
             border-radius: 2rem;
-            box-shadow: 0 2px 8px #00000044;
-            background-color: white;
+            box-shadow: 0 0 16px #c0d7ff;
+            background-color: #101e1f;
+            color: white;
         }
         
         main > * {
@@ -34,13 +70,17 @@
             /* For this animation, we just want to set what happens at the end, so we put that inside a "to" block */
             to {
                 /* All styles in this block will be applied to the element at the end of its animation, and they will smoothly transition during the animation if possible. */
-                transform: scale(120%);
-                color: #e1a3d6;
-                text-shadow: 0 0 24px yellow;
+                transform: scale(110%);
+                color: #ffffff;
+                text-shadow: 0 0 24px #ffc0d6;
             }
         }
         
         h1 {
+            /* Prevent the element's bounding box from expanding to fill the whole screen width */
+            width: fit-content;
+            margin: auto;
+
             /* To apply an animation, give an element an "animation-name" with the name of a keyframes rule you define */
             animation-name: flash;
 
@@ -52,50 +92,197 @@
 
             /* Animation properties can also all be combined into one line like so: */
             /* animation: flash ease-in-out 1s infinite alternate; */
-        }
-
-        h1, h2 {
+            color: #f6d6e0;
             text-align: center;
-            color: #ae5b9f;
         }
-
+        
         h2 {
+            text-align: center;
+            color: #c5f7df;
+            text-shadow: 0 0 8px #5ad398;
             margin-top: 4rem;
         }
 
         h3 {
-            color: #ae5b9f;
+            color: #baeb5a;
         }
 
         p, li {
-            font-size: 16pt;
+            font-size: 14pt;
             line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        ol, ul {
+            padding-left: 0;
+        }
+
+        li {
+            margin-left: 1em;
+        }
+
+        /* Selects any element with a class attribute of "fancy" */
+        .fancy {
+            padding-inline: 0.5rem;
+
+            /* Some setup to allow us to adjust the element's position */
+            position: relative;
+            left: 0;
+
+            /* transition allows us to specify that a given style should be smoothly animated whenever it changes. */
+            /* This will animate the "left" attribute over 0.2 seconds every time it changes, such as when the element is hovered. */
+            transition: left 0.2s, background-color 0.2s;
+        }
+
+        /* The :hover selector limits styles to only apply when the user hovers over an element with their cursor. */
+        .fancy:hover {
+            left: 10px;
+            background-color: #a93a9c44;
+        }
+
+        /*
+            ::before selects what's called a "pseudo-element," an imaginary element which comes before all the other children of the indicated element. We'll use it here to create a fancy animated underline. 
+        */
+        .fancy::before {
+            /* All pseudo-elements need this to be specified, but we don't want to have any text so we'll give it a blank string. */
+            content: "";
+            
+            background-color: #a93a9c;
+            height: 4px;
+            /* We'll give the line a width of 0 so it can be animated to expand on hover */
+            width: 0;
+
+            /* Used to position the line under the element */
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            /* Give it a smooth transition for the width attribute */
+            transition: width 0.2s;
+        }
+
+        /* Set width to be 100% of the parent element's width when hovered */
+        .fancy:hover::before {
+            width: 100%;
         }
 
         img {
             display: block;
             width: 70%;
             height: auto;
-            margin: 1rem auto;
+            margin: 2rem auto;
+            border: 2px solid #ffc0f7;
+            box-shadow: 0 0 16px #ffc0f7;
         }
 
+        img.full-width {
+            width: 90%;
+        }
+
+        strong {
+            color: #ffc57d;
+        }
+        
         em {
-            color: #c81642;
+            color: #5bdeff;
+            font-style: normal;
+        }
+
+        a:any-link {
+            color: white;
+        }
+        a:hover {
+            color: rgb(255, 95, 124);
+        }
+
+        kbd {
+            background-color: white;
+            color: #101e1f;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-inline: 0.5em;
+            padding: 4px 0.5em;
+            font-size: smaller;
         }
     </style>
 </head>
 <body>
-    <main>
+    <header>
         <h1>
             February 23 Agenda:
         </h1>
+    </header>
+    <main>
         <h2>
             Refresher on using git:
         </h2>
+        <p class="fancy">
+            You can look back at <a href="February15.html">last week's agenda</a> for a refresher on how to use <strong>Git</strong>. Let's practice this while we get our websites ready for launch! 
+        </p>
+        <ol>
+            <li class="fancy">
+                Open up Github Desktop and do a practice <strong>pull</strong> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>. Unless you switched computers or did some edits from the github website, you shouldn't have any changes to pull, but it's a good habit to just pull every time before you start working.
+            </li>
+            <li class="fancy">
+                Open your project in VS Code or your preferred text editor and add some finishing touches to your website. Try to make something that will impress your friends/family! <em>Remember that whatever you make will be available publicly on the internet for anyone to see, so make sure to be appropriate and to not share any information that is too personal.</em>
+            </li>
+            <li class="fancy">
+                Once you are happy with your website for now, go to Github Desktop and <strong>commit</strong> your changes.
+            </li>
+            <li class="fancy">
+                <strong>Pull</strong> your project again just for practice. This isn't necessary when you are working alone, but it's a good habit to pull every time before you push in case someone else pushed their changes to the project while you were working.
+            </li>
+            <li class="fancy">
+                <strong>Push</strong> <kbd>Ctrl</kbd>+<kbd>P</kbd> your changes to update the remote repository with your changes.
+            </li>
+        </ol>
         <h2>
             Host your site with Github Pages:
         </h2>
-        
+        <ol>
+            <li class="fancy">
+                First we need to find your repository on the Github website. You can do this through the website, but the easiest way is to click <strong>View on Github</strong> in the desktop app.
+            </li>
+            <img src="./images/2024-02-21-19-11-50.png" alt="Github Desktop window with the View on Github button highlighted">
+            <li class="fancy">
+                Now navigate to <strong>Settings</strong>.
+            </li>
+            <img class="full-width" src="./images/2024-02-21-18-53-43.png" alt="Github Website showing this project's repository with the Settings button highlighted">
+            <li class="fancy">
+                Click on <strong>Pages</strong> on the side bar. <em>If you don't see the pages tab, this means you forgot to make your repository public last time and you should scroll down all the way to the bottom where you'll find the option to <i>"Change repository visibility"</i>.</em>
+            </li>
+            <img class="full-width" src="./images/2024-02-21-19-20-39.png" alt="Settings page with Pages button highlighted in the side bar">
+            <li class="fancy">
+                To enable pages for your site, select the <strong>main</strong> branch, then hit <strong>save</strong>.
+            </li>
+            <img class="full-width" src="./images/2024-02-21-19-25-25.png" alt="Pages tab of the Settings menu with highlights indicating the branch select button, the Master branch, then the save button in order">
+        </ol>
+        <p class="fancy">
+            Once you hit save, you should see a message saying your website is being built.
+        </p>
+        <img src="./images/2024-02-21-19-32-50.png" alt="Your GitHub Pages site is currently being built from the main branch.">
+        <p class="fancy">
+            This should take a minute or so, so keep refreshing the page until you see this message:
+        </p>
+        <img src="./images/2024-02-21-20-55-49.png" alt="Your site is live at https://greenbeansagainstveganism.github.io/Sehome2024/">
+        <p class="fancy">
+            You can then click on <strong>Visit Site</strong> or go to the url: <em>yourGithubUsername.github.io/yourRepositoryName</em> to see your site!
+        </p>
+        <h3>
+            Notes about hosting websites:
+        </h3>
+        <ul>
+            <li class="fancy">
+                Your website will automatically update whenever you push new changes to your remote repository.
+            </li>
+            <li class="fancy">
+                If you have strange issues with your site not updating or partially updating, it's probably because your browser has cached a previous version of your website and is loading that instead of the new one to save bandwidth. You can fix this in Chrome by opening up dev tools <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>, going to the <strong>Network</strong> tab and checking <strong>Disable Cache</strong>.
+            </li>
+            <li class="fancy">
+                Github Pages is free to use, and it comes with very few limits! You shouldn't use a Github Pages site to promote your business/sell things, to show disturbing or inappropriate content, or to collect any kind of sensitive information like passwords or user data. Other than that, go wild! <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">You can read more about the terms of service here.</a>
+            </li>
+        </ul>
     </main>
 </body>
 </html>
