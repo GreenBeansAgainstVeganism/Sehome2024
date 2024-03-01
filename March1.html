@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>March 1 Web Dev Agenda</title>
+
+    <!-- 
+        This imports a custom font from the Google Fonts API.
+        If you want to use different fonts for your website besides just the web defaults, Google Fonts is a great source of fonts that are free for commercial use! Just go to fonts.google.com and find a font you like, then copy the <link> tag below and change the bit after "?family=" to the name of your font, replacing space characters with '+'.
+     -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
+    <!-- Disable me to see what this page would look like without CSS! -->
+    <style>
+        /* Applying our custom font to all elements on the page */
+        * {
+            font-family: 'Roboto Slab', Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            /* background images are another way of adding images to your website */
+            background-image: url("./images/2024-02-21-21-31-18.png");
+            background-size: cover;
+            background-position-y: top;
+            background-attachment: fixed;
+
+            /* Making the background move as you scroll */
+            /* animation-timeline is an experimental feature and may not work on some browsers like Firefox. You can check which browsers support a feature at the bottom of its MDN Docs page. */
+            animation-name: background-scroll;
+            animation-timing-function: linear;
+            animation-timeline: scroll();
+        }
+
+        /* Scroll down to see a more traditional example of how animations work. */
+        @keyframes background-scroll {
+            to {
+                background-position-y: bottom;
+            }
+        }
+
+        header {
+            /* You can also use background-image to generate graphics on the fly, such as gradients */
+            background-image: linear-gradient(#33134f 20%, #ae4ea8 100%);
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+
+            border-bottom: 2px solid #ffc0f7;
+            box-shadow: 0 0 16px #ffc0f7;
+        }
+
+        main {
+            margin-inline: 20%;
+            margin-block: 2rem;
+
+            padding: 2rem;
+            border: 2px solid #c0d7ff;
+            border-radius: 2rem;
+            box-shadow: 0 0 16px #c0d7ff;
+            background-color: #101e1f;
+            color: white;
+        }
+
+        main>* {
+            margin-block: 1rem;
+        }
+
+        /* A keyframes rule is used to define an animation that we can apply to other elements! */
+        @keyframes flash {
+
+            /* For this animation, we just want to set what happens at the end, so we put that inside a "to" block */
+            to {
+                /* All styles in this block will be applied to the element at the end of its animation, and they will smoothly transition during the animation if possible. */
+                transform: scale(110%);
+                color: #ffffff;
+                text-shadow: 0 0 24px #ffc0d6;
+            }
+        }
+
+        h1 {
+            /* Prevent the element's bounding box from expanding to fill the whole screen width */
+            width: fit-content;
+            margin: auto;
+
+            /* To apply an animation, give an element an "animation-name" with the name of a keyframes rule you define */
+            animation-name: flash;
+
+            /* We then set some other properties to determine how the animation will play out: */
+            animation-timing-function: ease-in-out;
+            /* Sets the animation to smoothly start and end */
+            animation-duration: 1s;
+            /* Sets the duration of one iteration of the animation */
+            animation-iteration-count: infinite;
+            /* Sets the animation to loop infinitely */
+            animation-direction: alternate;
+            /* Sets the animation to play forwards and then backwards */
+
+            /* Animation properties can also all be combined into one line like so: */
+            /* animation: flash ease-in-out 1s infinite alternate; */
+            color: #f6d6e0;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            color: #c5f7df;
+            text-shadow: 0 0 8px #5ad398;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        h2::before {
+            content: "";
+            
+            background-image: linear-gradient(90deg, transparent, #5ad398, transparent);
+            height: 2px;
+            width: 100%;
+
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+
+        h3 {
+            color: #baeb5a;
+        }
+
+        p,
+        li {
+            font-size: 14pt;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        ol,
+        ul {
+            padding-left: 0;
+        }
+
+        li {
+            margin-left: 1em;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        /* Selects any element with a class attribute of "fancy" */
+        .fancy {
+            padding-inline: 0.5rem;
+
+            /* Some setup to allow us to adjust the element's position */
+            position: relative;
+            left: 0;
+
+            /* transition allows us to specify that a given style should be smoothly animated whenever it changes. */
+            /* This will animate the "left" attribute over 0.2 seconds every time it changes, such as when the element is hovered. */
+            transition: left 0.2s, background-color 0.2s;
+        }
+
+        /* The :hover selector limits styles to only apply when the user hovers over an element with their cursor. */
+        .fancy:hover {
+            left: 10px;
+            background-color: #a93a9c44;
+        }
+
+        /*
+            ::before selects what's called a "pseudo-element," an imaginary element which comes before all the other children of the indicated element. We'll use it here to create a fancy animated underline. 
+        */
+        .fancy::before {
+            /* All pseudo-elements need this to be specified, but we don't want to have any text so we'll give it a blank string. */
+            content: "";
+
+            background-color: #a93a9c;
+            height: 4px;
+            /* We'll give the line a width of 0 so it can be animated to expand on hover */
+            width: 0;
+
+            /* Used to position the line under the element */
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            /* Give it a smooth transition for the width attribute */
+            transition: width 0.2s;
+        }
+
+        /* Set width to be 100% of the parent element's width when hovered */
+        .fancy:hover::before {
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            width: 70%;
+            height: auto;
+            margin: 2rem auto;
+            border: 2px solid #ffc0f7;
+            box-shadow: 0 0 16px #ffc0f7;
+        }
+
+        img.full-width {
+            width: 90%;
+        }
+
+        strong {
+            color: #ffc57d;
+        }
+
+        em {
+            color: #5bdeff;
+            font-style: normal;
+        }
+
+        a:any-link {
+            color: white;
+        }
+
+        a:hover {
+            color: rgb(255, 95, 124);
+        }
+
+        kbd {
+            background-color: white;
+            color: #101e1f;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-inline: 0.5em;
+            padding: 4px 0.5em;
+            font-size: smaller;
+        }
+
+        pre {
+            background-color: #ffffff22;
+            padding: 1rem;
+            overflow: auto;
+        }
+        
+        code {
+            font-family: Consolas, monospace;
+            color: #ffc0f7;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            March 1 Agenda:
+        </h1>
+    </header>
+    <main>
+        <h2>
+            Install VSCode extensions
+        </h2>
+        <p class="fancy">
+            If you haven't already, please make sure to install the following extensions for Visual Studio Code:
+        </p>
+        <ul>
+            <li class="fancy">HTML CSS Support</li>
+            <li class="fancy">Live Server (Five Server)</li>
+            <li class="fancy">Auto Close Tag</li>
+            <li class="fancy">Auto Rename Tag</li>
+            <li class="fancy">Path Intellisense</li>
+        </ul>
+        <p class="fancy">
+            To install extensions, open VSCode and click on the <em>Extensions</em> tab on the left of the interface. Use the search box to search the name of the extension and click <em>Install</em> when you see the extension you are looking for.
+        </p>
+        <img src="./images/2024-02-29-19-49-14.png" alt="Extensions tab closeup">
+        <h3>
+            Why do we want these?
+        </h3>
+        <p class="fancy">
+            These extensions are not necessary for working with HTML and CSS in VSCode, but they make the process much easier! For example, with <strong>HTML CSS Support</strong>, you can just type the name of a tag and hit <kbd>Enter</kbd> and it will automatically expand into an opening and closing tag.
+        </p>
+        <img src="./images/2024-02-29-19-52-25.png" alt="before hitting enter: p">
+        <img src="./images/2024-02-29-19-53-03.png" alt="after hitting enter: <p></p>">
+        <p class="fancy">
+            You can also type <kbd>!</kbd> and hit <kbd>Enter</kbd> to instantly set up the basic boilerplate code for an HTML page.
+        </p>
+        <img src="./images/2024-02-29-19-56-05.png" alt="before hitting enter: !">
+        <img src="./images/2024-02-29-19-56-17.png" alt="after hitting enter: html boilerplate code">
+        <p class="fancy">
+            The most important feature we've installed however, is this button in the bottom right which says <em>Go Live</em>.
+        </p>
+        <img src="./images/2024-02-29-20-50-59.png" alt="Go Live button highlighted in bottom right of VSCode window">
+        <p>
+            Clicking this will open your webpage on a local live server which will automatically reload whenever you make changes to your files, so you don't have to keep refreshing your browser every time you change something!
+        </p>
+        <img src="./images/2024-02-29-20-55-33.png" alt="my website running on a local live server">
+        <h3>
+            Relative File Paths
+        </h3>
+        <p class="fancy">
+            You may have noticed the other day when we hosted our websites that if your site had images on it, they didn't show up on the online version of your website. This is probably because your image tags look something like this:
+        </p>
+        <pre><code>&lt;img src=&quot;C:\Users\sagep\OneDrive\Documents\Web Projects\MyFirstWebsite\best_image.png&quot; alt=&quot;the best boy&quot;&gt;</code></pre>
+        <p class="fancy">
+            In the example above, the <strong>src</strong> attribute contains what we call the <em>absolute path</em> to the image file. This specifies the exact location of the file <i>on your computer</i>. However, the online version of your site does not have access to your computer. All it sees are the files in your repository, so it doesn't know what to do with a path like this.
+        </p>
+        <p class="fancy">
+            Instead, we need to use a <em>relative path</em> which specifies the file's location <i>relative</i> to your html file. We do this by starting the path with a single period, which represents the folder containing this html file.
+        </p>
+        <pre><code>&lt;img src=&quot;./best_image.png&quot; alt=&quot;the best boy&quot;&gt;</code></pre>
+        <h2>
+            Intro to CSS
+        </h2>
+
+        <h3>
+            Experiment:
+        </h3>
+        <p class="fancy">
+            Try disabling the CSS for this page! <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> to open developer tools, then find the <code>&lt;style&gt;</code> element inside the <code>&lt;head&gt;</code> and delete it.
+        </p>
+
+        <h3>Learn CSS:</h3>
+        <p class="center">
+            <a href="https://www.w3schools.com/html/html_css.asp">https://www.w3schools.com/html/html_css.asp</a>
+        </p>
+
+        <h3>
+            For CSS veterans:
+        </h3>
+        <p class="fancy">
+            If you know some CSS already, go to the <a href="https://www.w3schools.com/css/default.asp">W3Schools CSS tutorials page</a> and find a section to work through that looks interesting to you.
+        </p>
+    </main>
+</body>
+
+</html>
