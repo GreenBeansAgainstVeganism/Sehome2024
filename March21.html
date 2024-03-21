@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>March 1 Web Dev Agenda</title>
+    <title>March 21 Web Dev Agenda</title>
 
     <!-- 
         This imports a custom font from the Google Fonts API.
@@ -249,72 +249,33 @@
 <body>
     <header>
         <h1>
-            March 7 Agenda:
+            March 21 Agenda:
         </h1>
     </header>
     <main>
         <h2>
-            Install VSCode extensions
+            Inspiration!
         </h2>
-        <p class="fancy">
-            If you haven't already, please make sure to install the following extensions for Visual Studio Code:
+        <p>
+            Here are some examples of simple websites that you could make with just the skills you learn in this class!
         </p>
         <ul>
-            <li class="fancy">HTML CSS Support</li>
-            <li class="fancy">Live Server (Five Server)</li>
-            <li class="fancy">Auto Close Tag</li>
-            <li class="fancy">Auto Rename Tag</li>
-            <li class="fancy">Path Intellisense</li>
+            <li>
+                <a href="https://neal.fun/paper/">https://neal.fun/paper/</a>
+            </li>
+            <li>
+                <a href="https://neal.fun/internet-artifacts/">https://neal.fun/internet-artifacts/</a>
+            </li>
+            <li>
+                <a href="https://greenbeansagainstveganism.github.io/racket-explained/index.html">https://greenbeansagainstveganism.github.io/racket-explained/index.html</a> (My Website!)
+            </li>
+            <li>
+                <a href="https://mabi.land/numbers/">https://mabi.land/numbers/</a>
+            </li>
         </ul>
-        <p class="fancy">
-            To install extensions, open VSCode and click on the <em>Extensions</em> tab on the left of the interface. Use the search box to search the name of the extension and click <em>Install</em> when you see the extension you are looking for.
-        </p>
-        <img src="./images/2024-02-29-19-49-14.png" alt="Extensions tab closeup">
-        <h3>
-            Why do we want these?
-        </h3>
-        <p class="fancy">
-            These extensions are not necessary for working with HTML and CSS in VSCode, but they make the process much easier! For example, with <strong>HTML CSS Support</strong>, you can just type the name of a tag and hit <kbd>Enter</kbd> and it will automatically expand into an opening and closing tag.
-        </p>
-        <img src="./images/2024-02-29-19-52-25.png" alt="before hitting enter: p">
-        <img src="./images/2024-02-29-19-53-03.png" alt="after hitting enter: <p></p>">
-        <p class="fancy">
-            You can also type <kbd>!</kbd> and hit <kbd>Enter</kbd> to instantly set up the basic boilerplate code for an HTML page.
-        </p>
-        <img src="./images/2024-02-29-19-56-05.png" alt="before hitting enter: !">
-        <img src="./images/2024-02-29-19-56-17.png" alt="after hitting enter: html boilerplate code">
-        <p class="fancy">
-            The most important feature we've installed however, is this button in the bottom right which says <em>Go Live</em>.
-        </p>
-        <img src="./images/2024-02-29-20-50-59.png" alt="Go Live button highlighted in bottom right of VSCode window">
-        <p>
-            Clicking this will open your webpage on a local live server which will automatically reload whenever you make changes to your files, so you don't have to keep refreshing your browser every time you change something!
-        </p>
-        <img src="./images/2024-02-29-20-55-33.png" alt="my website running on a local live server">
-        <h3>
-            Relative File Paths
-        </h3>
-        <p class="fancy">
-            You may have noticed the other day when we hosted our websites that if your site had images on it, they didn't show up on the online version of your website. This is probably because your image tags look something like this:
-        </p>
-        <pre><code>&lt;img src=&quot;C:\Users\sagep\OneDrive\Documents\Web Projects\MyFirstWebsite\best_image.png&quot; alt=&quot;the best boy&quot;&gt;</code></pre>
-        <p class="fancy">
-            In the example above, the <strong>src</strong> attribute contains what we call the <em>absolute path</em> to the image file. This specifies the exact location of the file <i>on your computer</i>. However, the online version of your site does not have access to your computer. All it sees are the files in your repository, so it doesn't know what to do with a path like this.
-        </p>
-        <p class="fancy">
-            Instead, we need to use a <em>relative path</em> which specifies the file's location <i>relative</i> to your html file. We do this by starting the path with a single period, which represents the folder containing this html file.
-        </p>
-        <pre><code>&lt;img src=&quot;./best_image.png&quot; alt=&quot;the best boy&quot;&gt;</code></pre>
         <h2>
             Intro to CSS
         </h2>
-
-        <h3>
-            Experiment:
-        </h3>
-        <p class="fancy">
-            Try disabling the CSS for this page! <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> to open developer tools, then find the <code>&lt;style&gt;</code> element inside the <code>&lt;head&gt;</code> and delete it.
-        </p>
 
         <h3>Learn CSS:</h3>
         <p class="center">
